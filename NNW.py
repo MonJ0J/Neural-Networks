@@ -166,4 +166,4 @@ def model_file(file_name, num_inputs, num_hiddens, num_outputs, epochs, learning
         epoch+=1
     return parameter_dictionary
 
-print(model_file('xor.txt', 2, 2, 2, 3, 0.3))
+print(model_file('xor.txt', 2, 2, 1, 100, 0.3))
