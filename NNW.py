@@ -65,7 +65,7 @@ def find_loss(output_layer_outputs, labels):
     loss = (-1 / num_examples) * np.sum(np.multiply(labels, np.log(output_layer_outputs)) + np.multiply(1-labels, np.log(1-output_layer_outputs)))
     return loss
 
-def backprop(feature_array, labels, output_vals, weights_biases_dict, verbose=True):
+def backprop(feature_array, labels, output_vals, weights_biases_dict, verbose=False):
     if verbose:
         print()
     # We get the number of examples by looking at how many total
@@ -103,24 +103,24 @@ def backprop(feature_array, labels, output_vals, weights_biases_dict, verbose=Tr
         # on each of four training examples. This allows us to figure out how much,
         # for each of our training examples, each hidden node contributed to our
         # getting things wrong.
-        blame_array = np.dot(output_weights.T, raw_error)
+    blame_array = np.dot(output_weights.T, raw_error)
     if verbose:
         print("blame_array", blame_array)
         # hidden_layer_outputs is the actual values output by our hidden layer for
         # each of the four training examples. We square each of these values.
-        hidden_outputs_squared = np.power(hidden_layer_outputs, 2)
+    hidden_outputs_squared = np.power(hidden_layer_outputs, 2)
     if verbose:
         print("hidden_layer_outputs", hidden_layer_outputs)
         print("hidden_outputs_squared", hidden_outputs_squared)
         # We now multiply our blame array by 1 minus the squares of the hidden layer's
         # outputs.
-        propagated_error = np.multiply(blame_array, 1-hidden_outputs_squared)
+    propagated_error = np.multiply(blame_array, 1-hidden_outputs_squared)
     if verbose:
         print("propagated_error", propagated_error)
         # Finally, we compute the magnitude and direction in which we
         # should adjust our weights and biases for the hidden node.
-        hidden_weights_gradient = np.dot(propagated_error, feature_array.T)/num_examples
-        hidden_bias_gradient = np.sum(propagated_error, axis=1,keepdims=True)/num_examples
+    hidden_weights_gradient = np.dot(propagated_error, feature_array.T)/num_examples
+    hidden_bias_gradient = np.sum(propagated_error, axis=1,keepdims=True)/num_examples
     if verbose:
         print("hidden_weights_gradient", hidden_weights_gradient)
         print("hidden_bias_gradient", hidden_bias_gradient)
