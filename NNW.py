@@ -55,7 +55,7 @@ def forward_propagate(feature_array, parameter_dictionary):
 
     array_2 = parameter_dictionary["weight_output"]
     hidden_o = parameter_dictionary["output_biases"]
-    hidden_layer_outputs = np.dot(array_2,feature_array)
+    hidden_layer_outputs = np.dot(array_2,feature_array)+hidden_o
     activation_2  = sigmoid(hidden_layer_outputs)
     output_vals["output_layer_outputs"]=activation_2
 
