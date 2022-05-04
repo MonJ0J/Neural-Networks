@@ -14,7 +14,7 @@ Implementation of a simple neural network
 
 ### example command:
 ```AnaVerulidze_JuanJunco_lab_c.py -i xor.txt -n 2 -p 2 -o 1 -e 100 -l 0.3
-
+```
 ### example output:
 ```
 raw_error [[ 0.5        -0.11207102 -0.66490681  0.79971607]]
