@@ -13,7 +13,8 @@ Implementation of a simple neural network
 * On the CLI: navigate to the Lab D folder that contains input data files, as well as juanjunco-anaverulidze-labD.py and type ```python3 juanjunco-anaverulidze-labD.py -i file-name -n num-inputs -p num-hiddens -o num-outputs -e epochs -l learning-rate```. Make sure to replace "file-name", "num-inputs", "num-hiddens", "num-outputs", "epochs", "learning-rate", with the according values. File name and learning rate are string and float in that order, while all the other inputs are ints.
 
 ### example command:
-```AnaVerulidze_JuanJunco_lab_c.py -i xor.txt -n 2 -p 2 -o 1 -e 100 -l 0.3
+```
+AnaVerulidze_JuanJunco_lab_c.py -i xor.txt -n 2 -p 2 -o 1 -e 100 -l 0.3
 ```
 ### example output:
 ```
