@@ -54,8 +54,8 @@ def forward_propagate(feature_array, parameter_dictionary):
     output_vals["hidden_layer_outputs"]=activation
 
     array_2 = parameter_dictionary["weight_output"]
-    hidden_o = parameter_dictionary["output_biases"]
-    hidden_layer_outputs = np.dot(array_2,feature_array)+hidden_o
+    output_b = parameter_dictionary["output_biases"]
+    hidden_layer_outputs = np.dot(array_2,activation)+output_b
     activation_2  = sigmoid(hidden_layer_outputs)
     output_vals["output_layer_outputs"]=activation_2
 
@@ -160,13 +160,12 @@ def model_file(file_name, num_inputs, num_hiddens, num_outputs, epochs, learning
         vals_ForLoss = forward_propgate["output_layer_outputs"]
         loss = find_loss(vals_ForLoss,label_array)
         if epoch%100==0:
-            print("LOSS",loss)
+            # print("LOSS",loss)
         gradients = backprop(feature_array, label_array, forward_propgate, parameter_dictionary,epoch%100==0)
         parameter_dictionary = update_weights_biases(parameter_dictionary, gradients, learning_rate)
         epoch+=1
     return parameter_dictionary
 
-# print(model_file('xor.txt', 2, 2, 1, 1000, 0.1))
 
 
 if __name__ == "__main__":
